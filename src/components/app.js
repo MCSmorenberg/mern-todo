@@ -5,7 +5,7 @@ import TodosList from "./todos-list";
 
 const todos = [
   {
-      task: 'make React tutorial',
+      task: 'Do React tutorial',
       isCompleted: false
   },
   {
