@@ -8,10 +8,16 @@ export default class CreateTodo extends React.Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleCreate.bind(this)}>
         <input type="text" placeholder="Put your todo here!" ref="createInput" />
         <button>Submit</button>
       </form>
     )
+  }
+
+  handleCreate(event) {
+    event.preventDefault();
+
+    this.props.createTask(this.refs.createInput.value);
   }
 }

@@ -5,12 +5,12 @@ import TodosList from "./todos-list";
 
 const todos = [
   {
-      task: 'Do React tutorial',
-      isCompleted: false
+    task: 'Do React tutorial',
+    isCompleted: false
   },
   {
-      task: 'eat dinner',
-      isCompleted: true
+    task: 'eat dinner',
+    isCompleted: true
   }
 ];
 
@@ -22,27 +22,24 @@ export default class App extends React.Component {
     console.log(props);
 
     this.state = {
-        todos
+      todos
     };
   }
 
   render() {
-      return (
-          <div>
-              <h1>React ToDo App</h1>
-
-              <CreateTodo todos={this.state.todos} createTask={this.createTask.bind(this)} />
-              <TodosList
-                  todos={this.state.todos}
-              />
-          </div>
-      );
+    return (
+      <div>
+        <h1>React ToDo App</h1>
+        <CreateTodo createTask={this.createTask.bind(this)} />
+        <TodosList todos={this.state.todos} />
+      </div>
+    );
   }
 
   createTask(task) {
     this.state.todos.push({
-        task,
-        isCompleted: false
+      task,
+      isCompleted: false
     });
     this.setState({ todos: this.state.todos });
   }
