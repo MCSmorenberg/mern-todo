@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import CreateTodo from "./create-todo";
+import TodosList from "./todos-list";
+
+const todos = [
+  {
+      task: 'make React tutorial',
+      isCompleted: false
+  },
+  {
+      task: 'eat dinner',
+      isCompleted: true
+  }
+];
 
 export default class App extends React.Component {
   constructor(props) { // The constructor method is a special method for creating and initializing an object created with a class
@@ -9,24 +21,29 @@ export default class App extends React.Component {
     console.log('Hallo?Hallo?Hallo?Hallo?Hallo?');
     console.log(props);
 
-    // this.state = {
-    //     todos
-    // };
+    this.state = {
+        todos
+    };
   }
 
   render() {
       return (
           <div>
               <h1>React ToDo App</h1>
-              <CreateTodo />
-              {/* <CreateTodo todos={this.state.todos} createTask={this.createTask.bind(this)} />
+
+              <CreateTodo todos={this.state.todos} createTask={this.createTask.bind(this)} />
               <TodosList
                   todos={this.state.todos}
-                  toggleTask={this.toggleTask.bind(this)}
-                  saveTask={this.saveTask.bind(this)}
-                  deleteTask={this.deleteTask.bind(this)}
-              /> */}
+              />
           </div>
       );
+  }
+
+  createTask(task) {
+    this.state.todos.push({
+        task,
+        isCompleted: false
+    });
+    this.setState({ todos: this.state.todos });
   }
 }
