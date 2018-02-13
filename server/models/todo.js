@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const TodoSchema = new Schema({
   task: {
     type: String,
-    required: [true, 'Todo field is rquired']
+    required: [true, 'Todo field is required']
   },
   isCompleted: {
     type: Boolean,
@@ -17,4 +17,4 @@ const TodoSchema = new Schema({
 // MongDB will pluralize 'todo' to 'todo's' collection
 const Todo = mongoose.model('todo', TodoSchema);
 
-model.exports = Todo;
+module.exports = Todo;
