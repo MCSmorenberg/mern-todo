@@ -25,7 +25,12 @@ router.post('/todo', function(req, res, nextMiddleWare){
 
 // Update todo
 router.put('/todo/:id', function(req, res, nextMiddleWare){
-  res.send({type:'PUT'});
+  Todo.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(){
+    Todo.findOne({_id: req.params.id}).then(function(todo){
+      res.send(todo);
+    });
+  });
+  // res.send({type:'PUT'});
 });
 
 router.delete('/todo/:id', function(req, res, nextMiddleWare){
