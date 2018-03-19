@@ -1,3 +1,5 @@
+// Adds a layer of methods to easily save, edit retreive and delete data from the MongoDB
+// Allows us to create our Models and Schemas easily
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

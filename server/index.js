@@ -7,9 +7,10 @@ const app = express();
 
 // connect to mongodb
 mongoose.connect('mongodb://localhost/merntodo');
-// mongodb deprecation
+// mongodb deprecation --> look up what is it?
 mongoose.Promise = global.Promise;
 
+// Convert all incoming data to json and attach it to the request object
 app.use(bodyParser.json());
 
 // initialize routes
